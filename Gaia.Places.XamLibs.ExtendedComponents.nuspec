@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata minClientVersion="2.8.3">
+		<id>Gaia.Places.XamLibs.ExtendedComponents</id>
+		<version>0.2.0-rc2</version>
+		<title>Gaia Places ExtendedComponents Library for Xamarin.Forms</title>
+		<authors>Gustav Lagnström</authors>
+		<owners>Gaia System AB</owners>
+    <licenseUrl>https://github.com/figursagsmats/ExtendedComponents</licenseUrl>
+    <projectUrl>https://github.com/figursagsmats/ExtendedComponents</projectUrl>
+		<!--Default Icon, a template can be found:  https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon.png-->
+		<iconUrl>https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon_nuget.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>
+         This package brings Xamarin.Forms components that are styling-wise platform agnostic.
+		</description>
+		<summary>This package brings Xamarin.Forms components that are styling-wise platform agnostic.</summary>
+		<tags>xamarin, plugin, plugin for xamarin.forms, android, ios, Extended, components</tags>
+		<dependencies>
+			<group targetFramework="netstandard">
+				<dependency id="Xamarin.Forms" version="2.0.1.6505" />
+			</group>
+
+			<group targetFramework="MonoAndroid">
+				<dependency id="Xamarin.Forms" version="2.0.1.6505" />
+			</group>
+			<group targetFramework="Xamarin.iOS10">
+				<dependency id="Xamarin.Forms" version="2.0.1.6505" />
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<!--.NET Standard-->
+		<file src="src\Gaia.Places.XamLibs.ExtendedComponents.Abstractions\bin\Release\netstandard1.4\Gaia.Places.XamLibs.ExtendedComponents.*" target="lib\netstandard1.4" />
+
+		<!--Xamarin.Android-->
+		<file src="src\Gaia.Places.XamLibs.ExtendedComponents.Android\bin\Release\Gaia.Places.XamLibs.ExtendedComponents.*" target="lib\MonoAndroid10" />
+
+		<!--Xamarin.iOS-->
+		<file src="src\Gaia.Places.XamLibs.ExtendedComponents.iOS\bin\iPhone\Release\Gaia.Places.XamLibs.ExtendedComponents.*" target="lib\Xamarin.iOS10" />
+
+    
+	</files>
+</package>

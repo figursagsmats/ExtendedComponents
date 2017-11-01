@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:cc="clr-namespace:Gaia.Places.XamLibs.ExtendedComponents.Abstractions;assembly=Gaia.Places.XamLibs.ExtendedComponents.Abstractions"
+             xmlns:local="clr-namespace:TestMan "
+             
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TestMan.Views.ButtonPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="sliderDescription" TargetType="Label" >
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+            <Style x:Key="sliderValue" TargetType="Label" >
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Grid HeightRequest="400">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button 
+            x:Name="DefaultObject"
+            Grid.Row="0"
+            Text="Defult Button"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            
+            />
+            <cc:ExtendedButton 
+            x:Name="CustomObject"
+            Grid.Row="1"
+            Text="Extended Button"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+
+            />
+        </Grid>
+        <BoxView HeightRequest="1" BackgroundColor="Black"/>
+        <Label Text="Bindable Properties" FontSize="Large" FontAttributes="Bold"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="1" Grid.Column="0" Text="WidthRequest" Style="{StaticResource sliderDescription}"/>
+            <Label Grid.Row="2" Grid.Column="0" Text="HeightRequest" Style="{StaticResource sliderDescription}" />
+            <Label Grid.Row="3" Grid.Column="0" Text="FontSize" Style="{StaticResource sliderDescription}" />
+            <Label Grid.Row="4" Grid.Column="0" Text="BorderWidth" Style="{StaticResource sliderDescription}" />
+            <Label Grid.Row="5" Grid.Column="0" Text="BorderRadius" Style="{StaticResource sliderDescription}" />
+            <Label Grid.Row="6" Grid.Column="0" Text="BackgroundColor" Style="{StaticResource sliderDescription}" />
+            <Label Grid.Row="7" Grid.Column="0" Text="BorderColor" Style="{StaticResource sliderDescription}" />
+
+            <Slider Grid.Row="1" Grid.Column="1" Maximum="600" Minimum="10" Value="{Binding TargetWidthRequest}"/>
+            <Slider Grid.Row="2" Grid.Column="1" Maximum="200" Minimum="10" Value="{Binding TargetHeightRequest}"/>
+            <Slider Grid.Row="3" Grid.Column="1" Maximum="200" Minimum="10" Value="{Binding TargetFontSize}"/>
+            <Slider Grid.Row="4" Grid.Column="1" Maximum="20" Minimum="0" Value="{Binding TargetBorderWidth}"/>
+            <Slider Grid.Row="5" Grid.Column="1" Maximum="100" Minimum="0" Value="{Binding TargetBorderRadius}"/>
+            <Picker Grid.Row="6" Grid.Column="1" ItemsSource="{Binding ColorNames}" SelectedItem="{Binding SelectedBackgroundColorName, Mode=TwoWay}"/>
+            <Picker Grid.Row="7" Grid.Column="1" ItemsSource="{Binding ColorNames}" SelectedItem="{Binding SelectedBorderColorName, Mode=TwoWay}"/>
+
+
+
+
+            <Label Grid.Row="1" Grid.Column="2" Text="{Binding TargetWidthRequest}" Style="{StaticResource sliderValue}"/>
+            <Label Grid.Row="2" Grid.Column="2" Text="{Binding TargetHeightRequest}" Style="{StaticResource sliderValue}"/>
+            <Label Grid.Row="3" Grid.Column="2" Text="{Binding TargetFontSize}" Style="{StaticResource sliderValue}"/>
+            <Label Grid.Row="4" Grid.Column="2" Text="{Binding TargetBorderWidth}" Style="{StaticResource sliderValue}"/>
+            <Label Grid.Row="5" Grid.Column="2" Text="{Binding TargetBorderRadius}" Style="{StaticResource sliderValue}"/>
+            <Label Grid.Row="6" Grid.Column="2" Text="{Binding SelectedBackgroundColorName}" Style="{StaticResource sliderValue}"/>
+            <Label Grid.Row="7" Grid.Column="2" Text="{Binding SelectedBorderColorName}" Style="{StaticResource sliderValue}"/>
+            
+
+            <local:SwitchWithTag Grid.Row="1" Grid.Column="3" IsToggled="False" Toggled="OnWidthRequestToggled" Tag="DefaultObject" />
+            <local:SwitchWithTag Grid.Row="2" Grid.Column="3" IsToggled="False" Toggled="OnHeigtRequestToggled" Tag="DefaultObject" />
+            <local:SwitchWithTag Grid.Row="3" Grid.Column="3" IsToggled="False" Toggled="OnFontSizeToggled" Tag="DefaultObject" />
+            <local:SwitchWithTag Grid.Row="4" Grid.Column="3" IsToggled="False" Toggled="OnBorderWidthToggled" Tag="DefaultObject" />
+            <local:SwitchWithTag Grid.Row="5" Grid.Column="3" IsToggled="False" Toggled="OnBorderRadiusToggled" Tag="DefaultObject" />
+            <local:SwitchWithTag Grid.Row="6" Grid.Column="3" IsToggled="False" Toggled="OnBackgroundColorNameToggled" Tag="DefaultObject" />
+            <local:SwitchWithTag Grid.Row="7" Grid.Column="3" IsToggled="False" Toggled="OnBorderColorNameToggled" Tag="DefaultObject" />
+
+
+            <local:SwitchWithTag Grid.Row="1" Grid.Column="4" IsToggled="False" Toggled="OnWidthRequestToggled" Tag="CustomObject"/>
+            <local:SwitchWithTag Grid.Row="2" Grid.Column="4" IsToggled="False" Toggled="OnHeigtRequestToggled" Tag="CustomObject"/>
+            <local:SwitchWithTag Grid.Row="3" Grid.Column="4" IsToggled="False" Toggled="OnFontSizeToggled" Tag="CustomObject"/>
+            <local:SwitchWithTag Grid.Row="4" Grid.Column="4" IsToggled="False" Toggled="OnBorderWidthToggled" Tag="CustomObject"/>
+            <local:SwitchWithTag Grid.Row="5" Grid.Column="4" IsToggled="False" Toggled="OnBorderRadiusToggled" Tag="CustomObject"/>
+            <local:SwitchWithTag Grid.Row="6" Grid.Column="4" IsToggled="False" Toggled="OnBackgroundColorNameToggled" Tag="CustomObject"/>
+            <local:SwitchWithTag Grid.Row="7" Grid.Column="4" IsToggled="False" Toggled="OnBorderColorNameToggled" Tag="CustomObject"/>
+
+        </Grid>
+    </StackLayout>
+</ContentPage>

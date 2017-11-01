@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="TestMan.Views.TheMasterDetailPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Default">
+            <StackLayout>
+                <Button Text="MainPage" Command="{Binding NavigateCommand}" CommandParameter="NavigationPage/MainPage" />
+                <Button Text="EntryPage" Command="{Binding NavigateCommand}" CommandParameter="NavigationPage/EntryPage" />
+                <Button Text="ButtonPage" Command="{Binding NavigateCommand}" CommandParameter="NavigationPage/ButtonPage" />
+                <Button Text="ViewC" Command="{Binding NavigateCommand}" CommandParameter="MyNavigationPage/ViewC/ViewB" />
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    
+</MasterDetailPage>
